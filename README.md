@@ -1,12 +1,11 @@
-Projeto Full Stack Senior – Gestao de Artistas e Albuns
+Projeto Full Stack Senior, Gestao de Artistas e Albuns
 
 Candidato: Cleber Benedito Bazzano Moraes
-Vaga: Engenheiro de Computacao Senior
-Numero da inscricao: 16492
+Vaga: Engenheiro de Computacao Senior - Numero da inscricao: 16492
 Processo Seletivo: Edital n. 001/2026/SEPLAG
 
 1. Apresentacao do Projeto
-Este projeto consiste no desenvolvimento de uma solucao Full Stack para gerenciamento de discografia musical, contemplando o cadastro de artistas e seus respectivos albuns, upload e gerenciamento de capas de discos, alem de integracao com sistemas externos regionais.
+Este projeto consiste no desenvolvimento de uma solucao Full Stack para gerenciamento de discografia musical, contemplando o cadastro de artistas e seus respectivos albuns, upload e gerenciamento de capas de discos, alem de integracao com sistemas externos regionais. 
 
 A solucao foi concebida com foco em arquitetura, seguranca, escalabilidade e boas praticas de engenharia de software, sendo integralmente containerizada para garantir portabilidade, reprodutibilidade do ambiente e facilidade de execucao em diferentes contextos.
 
@@ -29,7 +28,7 @@ Infraestrutura
 Containerizacao: Docker e Docker Compose
 
 3. Arquitetura da Solucao
-A aplicacao foi projetada seguindo o padrao de Arquitetura em Camadas (Layered Architecture) e os princípios REST, priorizando baixo acoplamento, alta coesao e manutenibilidade.
+A aplicacao foi projetada seguindo o padrao de Arquitetura em Camadas (Layered Architecture) e os principios REST, priorizando baixo acoplamento, alta coesao e manutenibilidade.
 
 Camada de Apresentcao (Frontend):
 SPA (Single Page Application) desenvolvida em React, responsavel pela interacao com o usuario e consumo da API REST. Implementa abstracao das chamadas HTTP, reduzindo o acoplamento com a camada backend.
@@ -47,7 +46,7 @@ Camada de Integracao (External):
 Modulo dedicado a comunicacao com APIs externas (Regionais) e com o servico de armazenamento de arquivos (MinIO).
 
 4. Estrutura de Dados (Banco de Dados)
-O esquema do banco de dados e versionado e controlado via Flyway (/db/migration), garantindo rastreabilidade e consistência entre ambientes.
+O esquema do banco de dados e versionado e controlado via Flyway (/db/migration), garantindo rastreabilidade e consistencia entre ambientes.
 Usuario: Controle de acesso e autenticacao (login/senha).
 Artista: Entidade principal do dominio, contendo dados cadastrais do artista.
 Album: Entidade associada ao artista (relacao N:1), contendo metadados e referencia da capa (URL).
@@ -74,30 +73,31 @@ Registro alterado - Update (ativo = false) + Insert (novo registro)
 JWT (JSON Web Token) foi adotado para manter a API stateless, eliminando sessões no servidor e facilitando eventual escalabilidade horizontal.
 
 6. Execucao do Projeto
-A aplicacao encontra-se totalmente dockerizada, não sendo necessaria a instalacao local de Java ou Node.js.
+A aplicacao encontra-se totalmente dockerizada, nao sendo necessaria a instalacao local de Java ou Node.js.
 
 Pre-requisitos:
 Docker Desktop instalado e em execucao
 Git
 Passo a Passo
 Clone o repositorio:
-git clone https://github.com/cleberbazzano/fullstack.git
-cd fullstack
+git clone https://github.com/cleberbazzano/cleberbeneditobazzanomoraes631021.git
+cd cleberbeneditobazzanomoraes631021
 
-Suba os containers:
-docker-compose up --build
+Na raiz do projeto, suba os servicos de base de dados e armazenamento:
+docker-compose up -d
 
-Aguarde a inicializacao completa (download de dependencias do Maven e Node).
+Navegue ate a pasta do servidor e inicie a aplicacao:
+cd backend
+./mvnw spring-boot:run
+
+Instale as dependencias e inicie o ambiente de desenvolvimento:
+cd frontend
+npm install
+npm run dev
 
 Acessos
-Frontend: http://localhost:5173
 Login: admin
-Senha: admin123 (ou conforme definido na migration)
-Backend (Swagger): http://localhost:8080/swagger-ui.html
-Utilize /auth/login para obter o token e autorizar no Swagger.
-MinIO Console: http://localhost:9001
-Usuário: minioadmin
-Senha: minioadmin
+Senha: admin123 
 
 7. Status de Implementacao
 Backend
